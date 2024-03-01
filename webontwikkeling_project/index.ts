@@ -32,7 +32,7 @@ function filterByID(input: number, watches: Watch[])
     {
         if(watch.id === input)
         {
-            console.log(`- ${watch.model} ${watch.id}`);
+            console.log(`\n- ${watch.model} ${watch.id}`);
             console.log(`- Description: ${watch.description}`);
             console.log(`- Price: ${watch.price} CHF`);
             console.log(`- Special edition: ${watch.special_edition}`);
@@ -47,7 +47,7 @@ function filterByID(input: number, watches: Watch[])
             return;
         }
     }
-    console.log("Please enter a valid ID.")
+    console.log("No watch was found with this ID.");
 }
 
 function showColors(colorArray: string[]): string
@@ -60,7 +60,7 @@ function showColors(colorArray: string[]): string
 
         if(i < colorArray.length - 1)
         {
-            newString += ", "
+            newString += ", ";
         }
     }
 
@@ -73,7 +73,7 @@ function showMeasurements(measures: Measurement[]) {
 
 function showMenu(watches: Watch[])
 {
-    console.log("Welcome to our JSON watches data!")
+    console.log("Welcome to our JSON watches data!");
     let choice: number = readline.keyInSelect(choices, "Please enter your choice: ", {cancel: false, guide: false});
     
     while(choice !== 2)
