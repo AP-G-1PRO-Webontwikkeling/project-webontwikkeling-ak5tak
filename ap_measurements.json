@@ -1,0 +1,12 @@
+[
+    {"measurement_id":"STW1","size":44,"thickness":15.1,"water_resistance":20},
+    {"measurement_id":"STW2","size":42,"thickness":14,"water_resistance":20},
+    {"measurement_id":"STW3","size":41,"thickness":10.6,"water_resistance":50},
+    {"measurement_id":"STW4","size":41,"thickness":9.5,"water_resistance":20},
+    {"measurement_id":"STW5","size":41,"thickness":9.5,"water_resistance":20},
+    {"measurement_id":"STW6","size":41,"thickness":9.9,"water_resistance":20},
+    {"measurement_id":"STW7","size":41,"thickness":12.4,"water_resistance":50},
+    {"measurement_id":"STW8","size":41,"thickness":10.5,"water_resistance":50},
+    {"measurement_id":"STW9","size":33,"thickness":7,"water_resistance":50},
+    {"measurement_id":"STW10","size":37,"thickness":8.1,"water_resistance":50}
+]
