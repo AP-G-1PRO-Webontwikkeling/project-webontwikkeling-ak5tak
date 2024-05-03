@@ -12,6 +12,9 @@
                 <p class="card-text"><%= watch.description %></p>
                 </div>
                 <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a href="/edit"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">&#x1F589;</button></a>
+                </li>
                 <li class="list-group-item">CHF <%= watch.price %></li>
                 <li class="list-group-item">Release Date: <%= watch.release_date %></li>
                 <li class="list-group-item">Material: <%= watch.material_type %></li>

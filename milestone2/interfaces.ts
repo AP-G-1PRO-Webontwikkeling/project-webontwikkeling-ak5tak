@@ -1,5 +1,8 @@
+import { ObjectId } from "mongodb";
+
 export interface Watch
 {
+    _id: ObjectId;
     id: number;
     model: string;
     description: string;
