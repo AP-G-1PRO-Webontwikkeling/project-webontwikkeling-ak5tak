@@ -8,8 +8,7 @@ import { MongoClient } from "mongodb";
 
 dotenv.config();
 
-const uri = "mongodb+srv://aziz:kBrGjfh78UEtlMwM@webontwikkeling.dgshqhi.mongodb.net/";
-const client = new MongoClient(uri);
+const client = new MongoClient(process.env.MONGO_URI as string); // check na
 const database = client.db("project-webontwikkeling");
 const collection = database.collection("watches");
 
