@@ -1,0 +1,93 @@
+<%- include("partials/header") %>
+  <form action="/logout" method="post">
+    <button type="submit" class="btn btn-danger">Logout</button>
+  </form>
+  </div>
+  </div>
+  </nav>
+  </header>
+  <!-- Modal -->
+  <form action="/edit" role="search" method="post">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit watch</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label for="model">Which one?</label>
+            <select class="form-select form-select-sm" aria-label="Small select example" name="choiceModel" required>
+              <option selected>Select model</option>
+              <% for(let i=0; i < watches.length; i++) { %>
+                <option value="<%= watches[i].model %>">
+                  <%= watches[i].model %>
+                </option>
+                <% } %>
+            </select>
+            <label for="id">ID:</label>
+            <input type="number" class="form-control form-control-sm" name="id" placeholder="Number" aria-label="Value"
+              required>
+            <label for="model">Model:</label>
+            <input type="text" class="form-control form-control-sm" name="model" placeholder="Model name"
+              aria-label="Value" required>
+            <label for="specialOrNot">Edition:</label>
+            <select class="form-select form-select-sm" aria-label="Small select example" name="specialOrNot" required>
+              <option selected>Select edition</option>
+              <option value="true">Special</option>
+              <option value="false">Standard</option>
+            </select>
+            <label for="material">Material:</label>
+            <select class="form-select form-select-sm" aria-label="Small select example" name="material" required>
+              <option selected>Select material</option>
+              <% let materialArray=[]; %>
+                <% for(let watch of watches) { %>
+                  <% if(!materialArray.includes(watch.material_type)) { %>
+                    <% materialArray.push(watch.material_type); %>
+                      <% } %>
+                        <% } %>
+                          <% for(let material of materialArray) { %>
+                            <option value="<%= material %>">
+                              <%= material %>
+                            </option>
+                            <% } %>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="container d-flex flex-wrap justify-content-center">
+    <% for(let watch of watches) { %>
+      <div class="card mt-4 mb-4 mx-3" style="width: 18rem;">
+        <img src="<%= watch.image %>" class="card-img-top" alt="<%= watch.model %>">
+        <div class="card-body">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">&#x1F589;</button>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: <%= watch.id %>
+          </li>
+          <li class="list-group-item">
+            Model: <%= watch.model %>
+          </li>
+          <li class="list-group-item">
+            Special edition:
+            <% if (watch.special_edition) { %>
+              <span>&#10004;</span>
+              <% } else { %>
+                <span class="red-answer">&#10008;</span>
+                <% } %>
+          </li>
+          <li class="list-group-item">Material: <%= watch.material_type %>
+          </li>
+        </ul>
+      </div>
+      <% } %>
+  </div>
+  <%- include("partials/footer") %>

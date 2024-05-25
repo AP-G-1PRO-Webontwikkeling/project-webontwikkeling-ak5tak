@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+    <form action="/logout" method="post">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+    </div>
+    </div>
+    </nav>
+    </header>
+    <div class="container d-flex flex-wrap justify-content-center">
+        <% for(let watch of watches) { %>
+            <div class="card mt-4 mb-4 mx-3" style="width: 18rem;">
+                <img src="<%= watch.image %>" class="card-img-top" alt="<%= watch.model %>">
+                <div class="card-body">
+                    <h5 class="card-title">ID:<%= watch.id %>
+                            <%= watch.model %>
+                    </h5>
+                    <p class="card-text">
+                        <%= watch.description %>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <% if(user && user.role === "Admin") { %>
+                        <li class="list-group-item">
+                            <a href="/edit"><button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">&#x1F589;</button></a>
+                        </li>
+                    <% } %>
+                    <li class="list-group-item">CHF <%= watch.price %>
+                    </li>
+                    <li class="list-group-item">Release Date: <%= watch.release_date %>
+                    </li>
+                    <li class="list-group-item">Material: <%= watch.material_type %>
+                    </li>
+                    <li class="list-group-item">Size: <%= watch.size_measurement.size %>
+                    </li>
+                    <li class="list-group-item">
+                        <% let i=0; %>
+                            <% for(let color of watch.colors) { %>
+                                <%= color %>
+                                    <% if (i < watch.colors.length - 1) { %>
+                                        ,
+                                        <% } %>
+                                            <% i++; %>
+                                                <% } %>
+                    </li>
+                    <li class="list-group-item">
+                        Special Edition:
+                        <% if (watch.special_edition) { %>
+                            <span>&#10004;</span>
+                            <% } else { %>
+                                <span class="red-answer">&#10008;</span>
+                                <% } %>
+                    </li>
+                </ul>
+            </div>
+            <% } %>
+    </div>
+    <%- include("partials/footer") %>

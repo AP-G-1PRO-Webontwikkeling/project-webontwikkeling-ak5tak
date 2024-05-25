@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.floating-row {
+  border-radius: 10px;
+  margin: 0;
+}
+
+.col-12, .sort {
+  text-decoration: none; 
+  color: rgb(111, 111, 111); 
+  text-transform: capitalize;
+}
+
+.border-bottom-row {
+  border-bottom: 1px solid #ccc; /* Kies de gewenste stijl en kleur van de border */
+}
+
+.col-2 img {
+  width: 2rem;
+}
+
+.color-col {
+  background-color: rgb(207, 240, 250); 
+  color: #045d7b;
+  border: 1px solid #62c6e8;
+  border-radius: 5px;
+  margin: 0.3rem 0 0.3rem 0;
+  text-transform: capitalize;
+}
+
+.red-answer {
+  color: red;
+}
+
+.col-1 .detail-link {
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: bolder;
+  color: rgb(81, 115, 251);
+}
+
+.size-row .col-2 img {
+  width: 3rem;
+}
+
+.right-nav-btns {
+  display: flex;
+}
+
+.right-nav-btns form {
+  margin: 0 0 0 0.5rem;
+}
+
+@media (max-width: 950px) {
+  .container {
+      font-size: 0.6rem; /* Pas de gewenste fontgrootte aan */
+  }
+}
+
+@media (max-width: 770px) {
+  .adjusted-row {
+      display: flex;
+      flex-direction: column;
+  }
+}
