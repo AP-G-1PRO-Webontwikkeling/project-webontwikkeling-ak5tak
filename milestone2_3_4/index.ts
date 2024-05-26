@@ -176,12 +176,6 @@ app.get("/edit", secureMiddleware, adminOnlyMiddleware, (req, res) => {
 });
 
 app.post("/edit", secureMiddleware, adminOnlyMiddleware, async (req, res) => {
-    console.log(req.body.choiceModel);
-    console.log(req.body.id);
-    console.log(req.body.model);
-    console.log(req.body.specialOrNot);
-    console.log(req.body.material);
-
     try {
         let foundWatch = await collection.findOne<Watch>({ model: req.body.choiceModel });
         if (foundWatch) {
@@ -191,7 +185,7 @@ app.post("/edit", secureMiddleware, adminOnlyMiddleware, async (req, res) => {
                     id: req.body.id,
                     model: req.body.model,
                     special_edition: req.body.specialOrNot,
-                    price: req.body.material
+                    material_type: req.body.material
                 }
             });
         }
@@ -222,6 +216,7 @@ async function main() {
         if (!atleastOneWatch) {
             let response = await fetch("https://raw.githubusercontent.com/ak5tak/jsons_and_images/main/ap_royal_oak.json");
             watches = await response.json();
+
             await collection.insertMany(watches);
         }
         else {

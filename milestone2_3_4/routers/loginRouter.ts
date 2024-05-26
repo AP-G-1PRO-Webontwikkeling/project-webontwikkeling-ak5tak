@@ -19,7 +19,6 @@ export function loginRouter() {
             delete user.password;
             req.session.user = user;
             req.session.message = {type: "success", message: "You have successfully logged in!"};
-            console.log("ingelogd");
             res.redirect("/overview");
         } catch (e: any) {
             req.session.message = {type: "error", message: e.message};
