@@ -21,8 +21,8 @@ export default session({
     secret: process.env.SESSION_SECRET ?? "my-super-secret-secret",
     store: mongoStore,
     resave: true,
-    saveUninitialized: true,
-    cookie: {
+    saveUninitialized: true, // Dit kan handig zijn om de aanwezigheid van sessies te detecteren of om trackinginformatie op te slaan,
+    cookie: {                // zelfs als er geen waarde in de sessie is geplaatst.
         maxAge: 24 * 60 * 60 * 1000 // 1 dag in milliseconden
     }
 });
